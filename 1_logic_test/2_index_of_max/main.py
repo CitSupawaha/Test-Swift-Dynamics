@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 เขียบนโปรแกรมหา index ของตัวเลขที่มีค่ามากที่สุดใน list
 
@@ -20,4 +22,12 @@ output = list can not blank
 class Solution:
 
     def find_max_index(self, numbers: list) -> int | str:
-        pass
+        if not numbers:
+            return "list can not blank"
+
+        result_idx = 0
+        for i in range(1, len(numbers)):
+            if numbers[i] > numbers[result_idx]:
+                result_idx = i
+
+        return result_idx

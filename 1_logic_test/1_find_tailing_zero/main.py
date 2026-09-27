@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 เขียบนโปรแกรมหาจำนวนเลข 0 ที่ออยู่ติดกันหลังสุดของค่า factorial โดยห้ามใช้ function from math
 
@@ -20,4 +22,12 @@ output = number can not be negative
 class Solution:
 
     def find_tailing_zeroes(self, number: int) -> int | str:
-        pass
+        if number < 0:
+            return "number can not be negative"
+        count = 0
+        divisor = 5
+        while divisor <= number:
+            count += number // divisor
+            divisor *= 5
+
+        return count
